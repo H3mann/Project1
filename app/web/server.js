@@ -21,6 +21,21 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
+
+app.get('/redditInfo',function (req,res)  {
+   console.log('inside app.get!!*', req.query)
+
+   var options = { method: 'GET', uri: reqURL};
+    
+   request(options, (error, response, body) => {
+       if (error) throw new Error(error);
+       res.send(body);
+    
+ });
+
+
+})
+
 app.use("*", express.static(__dirname + "/../client/"))
 
 app.listen(8000, 'localhost', function(err) {

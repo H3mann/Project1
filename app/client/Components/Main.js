@@ -1,7 +1,6 @@
 
 var React = require('react')
 var ReactDOM = require('react-dom')
-var Nav = require( '../Components/Nav')
 var Search = require( '../Components/Search')
 
 
@@ -11,7 +10,7 @@ var Main = React.createClass({
 		// console.log('thisMain',this)
 		return (
 			<div>
-			<Nav/>
+			hello
 			{this.props.children}
 			</div>
 		)

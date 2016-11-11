@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/breakfast-mimes/cyber-mimes.git"
+    "url": "https://github.com/"
   },
   "author": "Harp",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/breakfast-mimes/cyber-mimes/issues"
+    "url": "https://github.com/"
   },
-  "homepage": "https://github.com/breakfast-mimes/cyber-mimes#readme",
+  "homepage": "https://github.com/",
   "dependencies": {
     "axios": "^0.14.0",
     "babel": "^6.5.2",
