@@ -7,14 +7,12 @@ var Search = require( '../Components/Search')
 var Main = React.createClass({
 
 	render: function () {
-		// console.log('thisMain',this)
 		return (
 			<div>
 			hello
 			{this.props.children}
 			</div>
 		)
-
 	}
 
 })

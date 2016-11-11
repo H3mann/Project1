@@ -15,34 +15,25 @@ const SubReddit = React.createClass ({
 
 		axios.get ('/redditInfo', {
 				params: {
-				
+
 				}
 		})
 		.then (response => {
-		
-
-		
 
 			this.setState({
-				
+
 			})
 	}),
 
-
-
 	render () {
 
-	return (
-		<div>
-		hello
-		</div>
-	)
+		return (
+			<div>
+			hello
+			</div>
+		)
 
 	}
-
-
-
-
 
 })
 

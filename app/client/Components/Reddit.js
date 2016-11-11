@@ -16,7 +16,7 @@ var Reddit = React.createClass({
 
 			this.setState({searchBar:event.target.value})
 
-		},
+	},
 
 	handleSubmitLocation(event) {
 
