@@ -9,34 +9,30 @@ var Reddit = React.createClass({
 	getInitialState() {
 
 		return {searchBar:''}
-
 	},
 
 	onUpdateSearch (event) {
 
-			this.setState({searchBar:event.target.value})
-
+		this.setState({searchBar:event.target.value})
 	},
 
 	handleSubmitLocation(event) {
 
 			event.preventDefault()
 			
-			},
-
+	},
+	
 	render () {
 
 		return (
 			<Search 
 			onUpdateSearch={this.onUpdateSearch}
 			handleSubmitLocation={this.handleSubmitLocation}
-			location={this.state.searchBar}
+			searchBar={this.state.searchBar}
 			/>
 		)
 
 	}
-
-
 })
 
 module.exports = Reddit;
