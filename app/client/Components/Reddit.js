@@ -5,25 +5,24 @@ var Search = require( '../Components/Search')
 
 
 var Reddit = React.createClass({
-
 	getInitialState() {
-
 		return {searchBar:''}
 	},
 
-	onUpdateSearch (event) {
+	contextTypes: {
+		router: React.PropTypes.object.isRequired
+	},
 
+	onUpdateSearch (event) {
 		this.setState({searchBar:event.target.value})
+		console.log(event.target.value)
 	},
 
 	handleSubmitLocation(event) {
-
-			event.preventDefault()
-			
+			console.log('handleSubmitLocation')	
 	},
-	
-	render () {
 
+	render () {
 		return (
 			<Search 
 			onUpdateSearch={this.onUpdateSearch}
@@ -31,7 +30,6 @@ var Reddit = React.createClass({
 			searchBar={this.state.searchBar}
 			/>
 		)
-
 	}
 })
 

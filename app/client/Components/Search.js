@@ -2,10 +2,10 @@ var React = require( 'react');
 var Router = require('react-router');
 var Link = Router.Link;
 
-function Search (props) {
+var Search = (props) => (
 
-return (
-<div>
+<div className='jumbotron mainPage text-center'>
+	<h1 style={{fontFamily: 'Raleway'}}>REDDIT SEARCH</h1>
 	<form onSubmit={props.handleSubmitLocation}>
 	   <div className="search-bar form-inline">
 	    <input className="form-control" 
@@ -21,7 +21,7 @@ return (
 	 </form>
 </div>
 
- )
-};
+)
+
 
 module.exports = Search

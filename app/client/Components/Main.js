@@ -9,12 +9,10 @@ var Main = React.createClass({
 	render: function () {
 		return (
 			<div>
-			hello
 			{this.props.children}
 			</div>
 		)
 	}
-
 })
 
 module.exports = Main;
