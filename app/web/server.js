@@ -61,6 +61,18 @@ app.get('/next',function (req,res)  {
 
 })
 
+app.get('/search', function (req, res) {
+  console.log('inside search app.get', req.query.search)
+
+  var searchURL = 'https://www.reddit.com/r/' + req.query.search + '.json'
+
+  var options = {method: 'GET', uri: searchURL}
+    request(options, (error, response, body) => {
+      if (error) throw new Error(error);
+      res.send(body)
+    })
+})
+
 // app.get('/before',function (req,res)  {
 //    console.log('inside app.get!!*',req.query.nextData)
 // //https://www.reddit.com/r/funny.json?after=t3_5agsds

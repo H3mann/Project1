@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import SubRedditUI from './subRedditUI'
+import SubRedditUI from './SubRedditUI'
 import { render } from 'react-dom';
 import Comments from '../Components/Comments'
 var ReactDOM = require('react-dom')

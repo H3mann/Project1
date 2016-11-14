@@ -17,17 +17,6 @@ const SubRedditUI = (props) => (
 			</div>
 		)
 		)}
-	<form onSubmit={props.next}>
-		{props.nextArr.map((list,i) => (
-			<div style={style} key={i}>
-				<img style={{height:'80px', width:'80px'}} src={list.thumbnail}/>
-				<Link to={'/Comments/' + list.permalink}> {list.title} </Link>
-			</div>
-		)
-		)}
-			<button className='btn btn-block btn-success center-block' type='submit'>Load More</button>
-
-	</form>
 </div>
 </div>
 
@@ -39,3 +28,14 @@ var style = {
 		backgroundColor: 'rgb(240,255,255)'}
 
 module.exports = SubRedditUI
+	// <form onSubmit={props.next}>
+	// 	{props.nextArr.map((list,i) => (
+	// 		<div style={style} key={i}>
+	// 			<img style={{height:'80px', width:'80px'}} src={list.thumbnail}/>
+	// 			<Link to={'/Comments/' + list.permalink}> {list.title} </Link>
+	// 		</div>
+	// 	)
+	// 	)}
+	// 		<button className='btn btn-block btn-success center-block' type='submit'>Load More</button>
+
+	// </form>

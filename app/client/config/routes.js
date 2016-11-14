@@ -5,7 +5,7 @@ var Main = require('../Components/Main')
 import Reddit from '../Components/Reddit'
 import SubReddit from '../Components/SubReddit'
 import Comments from '../Components/Comments'
-
+import MaterialUIAutocomplete from '../Components/AutoComplete'
 
 var routes = (
 
@@ -15,6 +15,7 @@ var routes = (
 	</Route>
 	<Route path='/subReddit/:searchbar' component={SubReddit}/>
 	<Route path='/Comments/*' component={Comments}/>
+	<Route path='/autocomplete/' component={MaterialUIAutocomplete}/>
 </Router>
 )
 
