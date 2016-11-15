@@ -1,6 +1,11 @@
 
 
-//NOT APART OF REDDIT CLONE. PLAYING AROUND WITH AUTOCOMPLETE
+
+
+
+//NOT APART OF REDDIT CLONE. PLAYING AROUND WITH AUTOCOMPLETE.
+//makes a call to google api for a auto complete of suggested search items.
+// /autocomplete route to see it
 
 import React, {Component} from 'react';
 import AutoComplete from 'material-ui/AutoComplete';;

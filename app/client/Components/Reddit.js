@@ -114,4 +114,3 @@ var Reddit = React.createClass({
 })
 
 module.exports = Reddit;
-		// getRedditInfo={this.getRedditInfo}
