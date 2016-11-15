@@ -10,17 +10,21 @@ const SubRedditUI = (props) => (
 <div>
 	<div>
 		<h1 style={{fontFamily:'Raleway', size:'36px'}} className='jumbotron'>{props.searchBar}</h1>
+		<form onSubmit={props.next}>
 		{props.list.map((list,i) => (
-			<div style={style}key={i}>
+			<div style={style} key={i}>
 				<img style={{height:'80px', width:'80px'}} src={list.thumbnail}/>
 				<Link to={'/Comments/' + list.permalink}> {list.title} </Link>
 			</div>
 		)
 		)}
-</div>
+			<button className='btn btn-block btn-success center-block' type='submit'>Load More</button>
+		</form>
+	</div>
 </div>
 
 )
+
 var style = {
 		fontFamily: 'arial', fontSize: '26px', 
 		padding:'12px', width: '1200px', 
@@ -28,14 +32,13 @@ var style = {
 		backgroundColor: 'rgb(240,255,255)'}
 
 module.exports = SubRedditUI
-	// <form onSubmit={props.next}>
-	// 	{props.nextArr.map((list,i) => (
-	// 		<div style={style} key={i}>
-	// 			<img style={{height:'80px', width:'80px'}} src={list.thumbnail}/>
-	// 			<Link to={'/Comments/' + list.permalink}> {list.title} </Link>
-	// 		</div>
-	// 	)
-	// 	)}
-	// 		<button className='btn btn-block btn-success center-block' type='submit'>Load More</button>
-
-	// </form>
+	  // <form onSubmit={props.next}>
+			//   {props.list.map((list,i) => (
+			// 	<div style={style} key={i}>
+			// 		<img style={{height:'80px', width:'80px'}} src={list.thumbnail}/>
+			// 		<Link to={'/Comments/' + list.permalink}> {list.title} </Link>
+			// 	</div>
+			// )
+			// )}
+			// 	<button className='btn btn-block btn-success center-block' type='submit'>Load More</button>
+			// </form>

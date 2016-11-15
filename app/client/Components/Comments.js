@@ -1,15 +1,14 @@
 import React from 'react'
 import axios from 'axios'
 import CommentsUI from '../Components/CommentsUI'
-import SubRedditUI from '../Components/subRedditUI'
+// import SubRedditUI from '../Components/subRedditUI'
 
 const Comments = React.createClass ({
 
 	getInitialState() {
-		return {
-						comments:[],title: ''}
+		return {title: '',comments: []}
 	},
-//api call to fetch comments
+	//api call to fetch comments
 	getComments() {
 	var queryComments = this.props.params.splat
 	console.log(queryComments)
@@ -19,19 +18,32 @@ const Comments = React.createClass ({
 		}
 	})
 	.then (response => {
+		// console.log('SUB COMMENTS',response.data)
+		console.log('commentsResponse',response.data[1].data.children[0].data.replies.data.children)
 		console.log('COMMENTS',response.data[1].data.children)
 		var arr = response.data[1].data.children
 		var title = response.data[0].data.children[0].data.title;
-		var comments = [];
-		for (var i = 0; i < arr.length; i++) {
-			comments.push(arr[i].data.body);
-		}
 
+    //recursive call to get all replies in comments tree
+	  function getCommentsFromArray(arr) {
+    var finalArr = [];
+
+    arr.map(function(item) {
+      if (typeof item !== 'undefined') {
+        finalArr.push(item.data.body)
+        if (typeof item.data.replies !== 'undefined' && item.data.replies !== '') {
+         finalArr.push(getCommentsFromArray(item.data.replies.data.children));
+        }
+      }
+    });
+    return finalArr;
+  }
+
+   var comments = getCommentsFromArray(arr);
 		this.setState({
-			comments: comments,
-			title: title
+			title: title,
+			comments: comments
 		})
-
 	})
 		.catch (response => {
 			console.log('error',response)
@@ -50,7 +62,6 @@ const Comments = React.createClass ({
 			</div>
 		)
 	}
-
 })
 
 export default Comments

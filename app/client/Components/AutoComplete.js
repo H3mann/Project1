@@ -1,3 +1,7 @@
+
+
+//NOT APART OF REDDIT CLONE. PLAYING AROUND WITH AUTOCOMPLETE
+
 import React, {Component} from 'react';
 import AutoComplete from 'material-ui/AutoComplete';;
 import getMuiTheme from 'material-ui/styles/getMuiTheme';

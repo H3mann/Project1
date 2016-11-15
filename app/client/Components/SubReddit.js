@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import SubRedditUI from './SubRedditUI'
+import SubRedditUI from './Render'
 import { render } from 'react-dom';
 import Comments from '../Components/Comments'
 var ReactDOM = require('react-dom')
@@ -9,41 +9,9 @@ const SubReddit = React.createClass ({
 
 	getInitialState () {
 		return {
-			searchBar: '',
-			list: [], 
-			next: '',
-			nextArr: []}
+			list: this.props.list, 
+			next: ''}
 		},
-
-	getRedditInfo() {
-		var queryData = this.props.params.searchbar;
-		axios.get('/redditInfo', {
-			params: {
-			queryData:queryData
-			}
-		})
-		.then (response => {
-			console.log('RESPONSE!',response.data)
-			console.log('BEFORE AND AFTER',response.data.data.after)
-			var searchBar = response.data.data.children[0].data.subreddit
-			var list =[];
-			var next = response.data.data.after;
-			var resArr = response.data.data.children
-
-			for (var i=0; i<resArr.length; i++) {
-					list.push(resArr[i].data)
-			}
-
-			this.setState({
-				searchBar:searchBar,
-				list:list,
-				next: next
-			})
-		})
-		.catch (response => {
-			console.log('error',response)
-		})
-	},
 
 	next(event) {
 		event.preventDefault()
@@ -59,15 +27,15 @@ const SubReddit = React.createClass ({
 		.then(response => {
 			console.log('NEXT', response)
 			var next = response.data.data.after
-			var nextArr = []
+
 			for (var i = 0; i < response.data.data.children.length; i++) {
-			nextArr.push(response.data.data.children[i].data)
+			this.state.list.push(response.data.data.children[i].data)
 			}
-			console.log('nextARRR',nextArr)
+			console.log('list',list)
 
 			this.setState({
 				next: next,
-				nextArr: nextArr
+				list: list
 			})
 
 		})
@@ -76,24 +44,13 @@ const SubReddit = React.createClass ({
 		})
 	},
 
-	// before(event) {
-	// 	event.PreventDefault()
-	// 	var queryData = this.state.searchBar
-	// 	// var beforeData = this.state.before
-	// },
-
-	componentDidMount () {
-		this.getRedditInfo();
-	},
-
 	render () {
-	console.log('this',this.state.nextArr)
+	console.log('this',this.state.list)
 		return (
 			<div>
 				<SubRedditUI list={this.state.list}
-				searchBar={this.state.searchBar}
 				next={this.next}
-				nextArr={this.state.nextArr}
+				searchBar={this.state.searchBar}
 				 />
 			</div>
 		)

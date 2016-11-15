@@ -43,6 +43,7 @@ app.get('/redditComments',function (req,res)  {
   request(options, (error, response, body) => {
        if (error) throw new Error(error);
        res.send(body);
+       // console.log('RESPONSE BODY', body)
   });
 
 })
@@ -50,7 +51,8 @@ app.get('/redditComments',function (req,res)  {
 app.get('/next',function (req,res)  {
    console.log('inside app.get!!*',req.query.nextData)
 //https://www.reddit.com/r/funny.json?after=t3_5agsds
-   var nextURL = 'https://www.reddit.com/r/' + req.query.queryData + '.json?after=' + req.query.nextData
+
+   var nextURL = 'https://www.reddit.com/r/' + req.query.queryData.trim() + '.json?after=' + req.query.nextData
    console.log('nextURL',nextURL)
    var options = { method: 'GET', uri: nextURL};
 

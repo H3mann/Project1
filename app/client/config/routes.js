@@ -3,7 +3,7 @@ var ReactRouter = require('react-router');
 import { Router, Route, IndexRoute, hashHistory, browserHistory} from 'react-router';
 var Main = require('../Components/Main')
 import Reddit from '../Components/Reddit'
-import SubReddit from '../Components/SubReddit'
+import SubReddit from '../Components/Render'
 import Comments from '../Components/Comments'
 import MaterialUIAutocomplete from '../Components/AutoComplete'
 
